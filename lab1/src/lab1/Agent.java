@@ -4,30 +4,31 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Agent class represents an agent that randomly chooses two ingredients to be on the table.
+ * Agent class represents an agent that randomly chooses two ingredients to be placed on the table.
  * @author Trong Nguyen
  * @version 1.0
  */
 public class Agent extends Thread {
-	private List<String> table;
+	
 	private String name;
+	private List<String> table;
 	
 	private String ingredient1;
 	private String ingredient2;
 	private String ingredient3;
 	
-	private final int MIN = 1;
-	private final int MAX = 3;
+	private final int MIN_RANGE = 1;
+	private final int MAX_RANGE = 3;
 	
 	/**
-	 * Constructor of Agent 
+	 * Constructor of Agent.
 	 * @param name			name of the Agent Thread
 	 * @param table			table where the ingredients will be placed to make the sandwich
 	 * @param ingredient1	one of the item necessary to form a complete sandwich
 	 * @param ingredient2	one of the item necessary to form a complete sandwich
 	 * @param ingredient3	one of the item necessary to form a complete sandwich
 	 */
-	public Agent(String name, List<String> table, String ingredient1, String ingredient2, String ingredient3 ) {
+	public Agent(String name, List<String> table, String ingredient1, String ingredient2, String ingredient3) {
 		super(name);
 		this.name = name;
 		this.table = table;
@@ -37,31 +38,32 @@ public class Agent extends Thread {
 	}
 	
 	/**
-	 * Run method override from Threads
+	 * Run method override from Thread class
 	 * @see java.lang.Thread#run()
 	 */
+	@Override
 	public void run() {
 		while(true) {
-			selectIngredient();
+			putIngredients(table);
 		}
 	}
 	
 	/**
 	 * Randomly selects 2 ingredients to put on the table.
 	 */
-	public void selectIngredient() {
-		synchronized(this) {
-			while(table.size() != 0) {
-				try {
-					System.out.println("Agent is waiting for empty table.");
-					wait();
-				} catch (InterruptedException e) {
-					System.err.println("ERROR: Agent Thread: ");
-					e.printStackTrace();
-					return;
-				}
+	public synchronized boolean putIngredients(List<String> table) {
+		// Check whether the table is full before adding ingredients
+		if (table.size() != 0) {
+			try {
+				System.out.println(name + " is waiting for the table to be empty.");
+				wait();
+				return false;
+			} catch (InterruptedException e) {
+				System.err.println("ERROR: Thread Agent: ");
+				e.printStackTrace();
 			}
-			int randomChoice = randomSelection();
+		} else {
+			int randomChoice = randomSelection(MIN_RANGE, MAX_RANGE);
 			switch(randomChoice) {
 			case 1:
 				table.add(ingredient1);
@@ -76,19 +78,22 @@ public class Agent extends Thread {
 				table.add(ingredient3);
 				break;
 			default:
-				System.err.println("FAIL: Ingredients fell off the table!");
+				System.err.println("ERROR: Ingredients were not selected");
 				break;
 			}
 			System.out.println(name + " has choosen 2 random ingredients: " + table.get(0) + " and " + table.get(1) + ".");
 			notifyAll();
 		}
+		return true;
 	}
 	
 	/**
 	 * Randomly chooses a number between a range.
-	 * @return	random number within MIN and MIN range
+	 * @return	random integer within minimum and maximum range.
 	 */
-	public int randomSelection() {
-		return ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
+	public int randomSelection(int min, int max) {
+		int range = (max - min) + 1;
+		return (int)(Math.random() * range) + min;
 	}
+	
 }
