@@ -1,7 +1,6 @@
 package lab1;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Agent class represents an agent that randomly chooses two ingredients to be placed on the table.
