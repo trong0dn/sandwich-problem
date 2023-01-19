@@ -30,7 +30,7 @@ public class Chef extends Thread {
 	
 	/**
 	 * Run method override from Threads
-	 * @see java.lang.Thread#run()
+	obj * @see java.lang.Thread#run()
 	 */
 	@Override
 	public void run() {
@@ -46,7 +46,7 @@ public class Chef extends Thread {
 	private synchronized Object getSandwich() {
 		Object obj = table;
 		for (String foodItem : table) {
-			// Check if the table is empty or if chef already has that ingredient 
+			// Check if the table is empty or if chef already has that ingredient
 			while (table.isEmpty() || foodItem.equals(ingredient)) {
 				try {
 					System.out.println(name + " is waiting for ingredients.");
