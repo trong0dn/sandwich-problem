@@ -22,10 +22,10 @@ public class Kitchen {
 		List<String> table = Collections.synchronizedList(new ArrayList<String>());
 		
 		// Create the Agent and Chefs threads, passing each thread a reference to the shared Table object
-		Thread agent = new Agent("Agent", table, "bread", "peanut butter", "jam");
-		Thread chef1 = new Chef("Chef1", table, "bread");
-		Thread chef2 = new Chef("Chef2", table, "peanut butter");
-		Thread chef3 = new Chef("Chef3", table, "jam");
+		Thread agent = new Agent("AGENT", table, "BREAD", "PEANUT BUTTER", "JAM");
+		Thread chef1 = new Chef("CHEF-1", table, "BREAD");
+		Thread chef2 = new Chef("CHEF-2", table, "PEANUT BUTTER");
+		Thread chef3 = new Chef("CHEF-3", table, "JAM");
 		
 		System.out.println("Welcome to the Chef's Kitchen for Sandwiches...");
 		agent.start();
