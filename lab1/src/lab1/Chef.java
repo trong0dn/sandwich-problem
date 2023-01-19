@@ -37,21 +37,22 @@ public class Chef extends Thread {
 		while (Kitchen.count < MAX_SANDWICHES) {
 			getSandwich();
 		}
+		System.out.println("Program Completed.");
 	}
 	
 	/**
 	 * Makes a sandwich with all ingredients on the table and eats it.
 	 */
-	public synchronized Object getSandwich() {
+	private synchronized Object getSandwich() {
 		Object obj = table;
 		for (String foodItem : table) {
 			// Check if the table is empty or if chef already has that ingredient 
-			while (table.size() == 0 || foodItem.equals(ingredient)) {
+			while (table.isEmpty() || foodItem.equals(ingredient)) {
 				try {
-					System.out.println("Chef is waiting for ingredients.");
+					System.out.println(name + " is waiting for ingredients.");
 					wait();
 				} catch (InterruptedException e) {
-					System.err.println("ERROR: Thread Chef: ");
+					System.err.println("ERROR: " + name);
 					e.printStackTrace();
 				}
 			}
@@ -65,4 +66,3 @@ public class Chef extends Thread {
 	}
 	
 }
-

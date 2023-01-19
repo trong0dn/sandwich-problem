@@ -50,39 +50,38 @@ public class Agent extends Thread {
 	/**
 	 * Randomly selects 2 ingredients to put on the table.
 	 */
-	public synchronized boolean putIngredients(List<String> table) {
+	private synchronized boolean putIngredients(List<String> table) {
 		// Check whether the table is full before adding ingredients
-		if (table.size() != 0) {
+		while (!(table.isEmpty())) {
 			try {
 				System.out.println(name + " is waiting for the table to be empty.");
 				wait();
-				return false;
 			} catch (InterruptedException e) {
-				System.err.println("ERROR: Thread Agent: ");
+				Thread.currentThread().interrupt(); 
+				System.err.println("ERROR: " + name);
 				e.printStackTrace();
 			}
-		} else {
-			int randomChoice = randomSelection(MIN_RANGE, MAX_RANGE);
-			switch(randomChoice) {
-			case 1:
-				table.add(ingredient1);
-				table.add(ingredient2);
-				break;
-			case 2:
-				table.add(ingredient2);
-				table.add(ingredient3);
-				break;
-			case 3:
-				table.add(ingredient1);
-				table.add(ingredient3);
-				break;
-			default:
-				System.err.println("ERROR: Ingredients were not selected");
-				break;
-			}
-			System.out.println(name + " has choosen 2 random ingredients: " + table.get(0) + " and " + table.get(1) + ".");
-			notifyAll();
 		}
+		int randomChoice = randomSelection(MIN_RANGE, MAX_RANGE);
+		switch(randomChoice) {
+		case 1:
+			table.add(ingredient1);
+			table.add(ingredient2);
+			break;
+		case 2:
+			table.add(ingredient2);
+			table.add(ingredient3);
+			break;
+		case 3:
+			table.add(ingredient1);
+			table.add(ingredient3);
+			break;
+		default:
+			System.err.println("ERROR: Ingredients were not selected");
+			break;
+		}
+		System.out.println(name + " has chosen 2 random ingredients.");
+		notifyAll();
 		return true;
 	}
 	
