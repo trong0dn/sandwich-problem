@@ -1,5 +1,5 @@
-<mxfile host="app.diagrams.net" modified="2023-01-20T06:34:37.667Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="J7UVHOsAL8JoXThnML7Y" version="20.8.8" type="github" pages="2">
-  <diagram id="jZ9dLvTM9Wt9Y2EBPhjy" name="class-UML">
+<mxfile host="app.diagrams.net" modified="2023-01-20T06:37:40.277Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="kkK5Fopo4_RIE_wwbgSP" version="20.8.8" type="github" pages="2">
+  <diagram id="jZ9dLvTM9Wt9Y2EBPhjy" name="class">
     <mxGraphModel dx="1674" dy="788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -96,7 +96,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="Tbj0oZMairq3HEpZuRnw" name="sequence-UML">
+  <diagram id="Tbj0oZMairq3HEpZuRnw" name="sequence">
     <mxGraphModel dx="2943" dy="985" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
