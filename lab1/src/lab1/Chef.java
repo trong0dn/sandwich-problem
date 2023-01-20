@@ -38,6 +38,7 @@ public class Chef extends Thread {
 			getSandwich();
 		}
 		System.out.println("Program Completed.");
+		System.exit(0);
 	}
 	
 	/**

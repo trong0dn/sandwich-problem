@@ -14,10 +14,20 @@ public class Kitchen {
 	public static int count = 0;
 	
 	/**
-	 * Main method to initialize the table along with ingredients and runs the program.
+	 * Main method to runs the program.
 	 * @param args	default parameter
 	 */
 	public static void main(String[] args) {
+		if (args.length == 0) {
+			Kitchen kitchen = new Kitchen();
+			kitchen.makeSandwich();
+		}
+	}
+	
+	/**
+	 * Method to initialize the table along with ingredients and the chef.
+	 */
+	private void makeSandwich() {
 		// Table object is shared by Agent and Chef
 		List<String> table = Collections.synchronizedList(new ArrayList<String>());
 		
