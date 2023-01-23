@@ -1,18 +1,18 @@
 Carleton University 
 Department of Systems and Computer Engineering 
 SYSC 3303A Real-Time Concurrent Systems Winter 2023 
-Assignment 1 ó Java Threads 
+Assignment 1 ‚Äî Java Threads 
 
 @author Trong Nguyen
 @version 1.0
 @date 28-01-2023
 ---------------------------------------------------------------------------------
 
-# The Sandwich≠Making Chefs Problem
+# The Sandwich¬≠Making Chefs Problem
 
 ## Problem Description
 
-This problem was first published as the cigarette≠smokers problem by S. Patil in
+This problem was first published as the cigarette-smokers problem by S. Patil in
 1971, and is one of several classic process coordination problems that are used 
 to evaluate facilities for synchronizing concurrent threads and processes.
 
@@ -67,7 +67,7 @@ run the program in local IDE, otherwise the program can be compiled and
 executed via Command Prompt.
 
 ```console
-> cd C:\..\..\\lab1\src\					// Navigate to the src directory	
+> cd C:\..\..\\lab1\src\			    // Navigate to the src directory	
 > javac lab1\*.java						// Compile the source code
 > java -cp . lab1.Kitchen				// Set classpath to run application
 ```
@@ -102,7 +102,7 @@ and consumed.
 ## Disclaimer
 
 Copyright disclaimer under section 107 of the Copyright Act 1976, allowance is 
-made for ìfair useî for purposes such as criticism, comment, news reporting, 
+made for ‚Äúfair use‚Äù for purposes such as criticism, comment, news reporting, 
 teaching, scholarship, education and research.
 
 Fair use is a use permitted by copyright statute that might otherwise be 
