@@ -8,7 +8,7 @@ Assignment 1 — Java Threads
 @date 28-01-2023
 ---------------------------------------------------------------------------------
 
-# The Sandwich­Making Chefs Problem
+# The Sandwich-Making Chefs Problem
 
 ## Problem Description
 
