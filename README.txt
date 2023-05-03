@@ -1,11 +1,8 @@
-Carleton University 
-Department of Systems and Computer Engineering 
-SYSC 3303A Real-Time Concurrent Systems Winter 2023 
-Assignment 1 — Java Threads 
+# Java Threads 
 
-@author Trong Nguyen
+@author trong0dn
 @version 1.0
-@date 28-01-2023
+@date 28/01/2023
 ---------------------------------------------------------------------------------
 
 # The Sandwich-Making Chefs Problem
